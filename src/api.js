@@ -29,7 +29,13 @@ function deleteTrick(id) {
     headers: {
       'Content-Type': 'application/json'
     },
-  });
+  })
+  .then(res => {
+    if(!res.ok) {
+      throw new Error('Could not add trick.')
+    }
+    return res.json()
+  })
 }
 
 export {getTricks, postTrick, deleteTrick}

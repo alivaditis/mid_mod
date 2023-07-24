@@ -5,7 +5,7 @@ describe('App Test', () => {
     cy.intercept('POST', 'http://localhost:3001/api/v1/tricks', {fixture: 'post.json'}).as('postTrick')
   })
   
-  it('As a user I should see a list of tricks, fill out the form, click the send button, and see the updated tricks with the appropriate information', () => {
+  it('As a user I should see a list of tricks, fill out the form, click the send button, and see the updated tricks with the appropriate information.  As a user I should be able to click a tricks delete button and see the trick removed from the dashboard', () => {
     cy.wait('@getTricks')
       .get('.tricks')
       .find('.card').should('have.length', 3)
