@@ -6,6 +6,7 @@ function Card({stance, name, obstacle, tutorial, id, removeTrick}) {
   const handleClick = (event) => {
     deleteTrick(event.target.id)
       .then(res => removeTrick(id))
+      .catch(err => alert(err.message))
   }
   
   return (
