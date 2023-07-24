@@ -1,0 +1,8 @@
+.form--tricks {
+  display: flex;
+  justify-content: center;
+}
+
+.form--stance, .form--name, .form--obstacle, .form--tutorial {
+  margin-right: 32px;
+}

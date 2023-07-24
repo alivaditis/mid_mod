@@ -3,8 +3,7 @@ import { getTricks } from '../../api'
 import Card from '../Card/Card'
 import './Tricks.css'
 
-function Tricks() {
-  const[tricks, setTricks] = useState([])
+function Tricks({tricks, setTricks}) {
   useEffect(() => {
     getTricks()
       .then(data => setTricks(data))
