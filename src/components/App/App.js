@@ -1,5 +1,6 @@
 import './App.css';
 import React from 'react';
+import Tricks from '../Tricks/Tricks'
 
 
 
