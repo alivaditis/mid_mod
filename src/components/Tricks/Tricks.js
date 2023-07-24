@@ -3,7 +3,7 @@ import { getTricks } from '../../api'
 import Card from '../Card/Card'
 import './Tricks.css'
 
-function Tricks({tricks, setTricks}) {
+function Tricks({tricks, setTricks, removeTrick}) {
   useEffect(() => {
     getTricks()
       .then(data => setTricks(data))
@@ -12,7 +12,7 @@ function Tricks({tricks, setTricks}) {
 
   return (
     <div className='tricks'>
-      {tricks.map(trick => <Card {...trick} key={trick.id}/>)}
+      {tricks.map(trick => <Card {...trick} key={trick.id}  removeTrick={removeTrick}/>)}
     </div>
   )
 }

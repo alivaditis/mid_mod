@@ -17,8 +17,19 @@ function postTrick (newTrick) {
   })
     .then(res => {
       if(!res.ok) {
-        throw new Error('Could not get tricks.')
+        throw new Error('Could not add trick.')
       }
-      return res.json()})}
+      return res.json()
+    })
+}
 
-export {getTricks, postTrick}
+function deleteTrick(id) {
+  return fetch(`http://localhost:3001/api/v1/tricks/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+  });
+}
+
+export {getTricks, postTrick, deleteTrick}

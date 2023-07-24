@@ -10,11 +10,15 @@ function App() {
     setTricks([...tricks, {stance, name, obstacle, tutorial, id: Date.now()}])
   }
 
+  function removeTrick(id) {
+    setTricks(prev => prev.filter(trick => trick.id !== id))
+  }
+
   return (
     <div className="App">
       <h1>Sick Trick Wish List</h1>
       <Form addTrick={addTrick}/>
-      <Tricks tricks={tricks} setTricks={setTricks}/>
+      <Tricks tricks={tricks} setTricks={setTricks} removeTrick={removeTrick}/>
     </div>
   );
 }
