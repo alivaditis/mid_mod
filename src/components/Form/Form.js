@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { postTrick } from '../../api'
 import './Form.css'
 
 function Form({addTrick}) {
@@ -9,7 +10,9 @@ function Form({addTrick}) {
 
   const handleClick = (event) => {
     event.preventDefault()
-    addTrick(stance, name, obstacle, tutorial)
+    postTrick({stance, name, obstacle, tutorial, id: Date.now()})
+      .then(res => addTrick(stance, name, obstacle, tutorial))
+      .catch(err => alert(err.message))
   }
 
   return (
