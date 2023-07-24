@@ -2,6 +2,7 @@ describe('App Test', () => {
   beforeEach(() => {
     cy.visit('localhost:3000')
     cy.intercept('GET', 'http://localhost:3001/api/v1/tricks', {fixture: 'tricks.json'}).as('getTricks')
+    cy.intercept('POST', 'http://localhost:3001/api/v1/tricks', {fixture: 'post.json'}).as('postTrick')
   })
   
   it('As a user I should see a list of tricks, fill out the form, click the send button, and see the updated tricks with the appropriate information', () => {
